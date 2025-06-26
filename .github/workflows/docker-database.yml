@@ -9,6 +9,10 @@ on:
   push:
     branches:
       - feature-clerk
+  workflow_run:
+    workflows: ["Upstream Sync"]
+    types:
+      - success
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
