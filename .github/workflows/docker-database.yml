@@ -6,6 +6,9 @@ on:
     types: [published]
   pull_request:
     types: [synchronize, labeled, unlabeled]
+  push:
+    branches:
+      - feature-clerk
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
