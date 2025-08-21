@@ -9,7 +9,9 @@ export default defineConfig({
   test: {
     alias: {
       /* eslint-disable sort-keys-fix/sort-keys-fix */
+      '@/libs/model-runtime': resolve(__dirname, './packages/model-runtime/src'),
       '@/types': resolve(__dirname, './packages/types/src'),
+      '@/const': resolve(__dirname, './packages/const/src'),
       '@': resolve(__dirname, './src'),
       '~test-utils': resolve(__dirname, './tests/utils.tsx'),
       /* eslint-enable */
@@ -20,6 +22,7 @@ export default defineConfig({
         // https://github.com/lobehub/lobe-chat/pull/7265
         ...coverageConfigDefaults.exclude,
         '__mocks__/**',
+        '**/packages/**',
         // just ignore the migration code
         // we will use pglite in the future
         // so the coverage of this file is not important
@@ -36,6 +39,7 @@ export default defineConfig({
       '**/dist/**',
       '**/build/**',
       '**/apps/desktop/**',
+      '**/packages/**',
       'src/database/server/**/**',
       'src/database/repositories/dataImporter/deprecated/**/**',
     ],
